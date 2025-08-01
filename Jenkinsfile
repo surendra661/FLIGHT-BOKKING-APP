@@ -11,12 +11,12 @@ pipeline {
         }
         stage("BUILD") {
             steps {
-                sh "mvn clean install"
+                sh 'mvn clean install'
             }
         }
         stage("TESTING") {
             steps {
-                echo "testing with maven"
+                echo 'testing with maven'
             }
         }
     }
