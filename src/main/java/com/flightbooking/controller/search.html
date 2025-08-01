@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Flights</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>✈️ SkyTravel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="search.html">Book Flight</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-form">
+            <h2>Search Flights</h2>
+            <form action="search" method="get">
+                <label>From: 
+                    <select name="departure" required>
+                        <option value="DEL">Delhi (DEL)</option>
+                        <option value="BOM">Mumbai (BOM)</option>
+                    </select>
+                </label>
+                <label>To: 
+                    <select name="arrival" required>
+                        <option value="BOM">Mumbai (BOM)</option>
+                        <option value="DEL">Delhi (DEL)</option>
+                    </select>
+                </label>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

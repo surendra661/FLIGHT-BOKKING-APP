@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Flight</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>✈️ SkyTravel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="search.html">Book Flight</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="booking-form">
+            <h2>Complete Booking</h2>
+            <form action="book" method="post">
+                <input type="hidden" name="flightNumber" value="AI101">
+                <label>Passenger Name: <input type="text" name="passengerName" required></label>
+                <label>Email: <input type="email" name="passengerEmail" required></label>
+                <label>Passengers: <input type="number" name="passengers" min="1" max="10" required></label>
+                <label>Class: 
+                    <select name="travelClass" required>
+                        <option value="Economy">Economy</option>
+                        <option value="Business">Business</option>
+                    </select>
+                </label>
+                <button type="submit" class="btn">Confirm Booking</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
