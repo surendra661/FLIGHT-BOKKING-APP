@@ -1,39 +1,26 @@
-package com.flightbooking;
+package com.flightbooking.controller;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-@WebServlet("/book")
 public class BookingServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String flightNumber = request.getParameter("flightNumber");
-        String passengerName = request.getParameter("passengerName");
-        String passengerEmail = request.getParameter("passengerEmail");
-        int passengers = Integer.parseInt(request.getParameter("passengers"));
-        String travelClass = request.getParameter("travelClass");
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String from = request.getParameter("from");
+        String to = request.getParameter("to");
+        String date = request.getParameter("date");
 
-        Flight flight = null;
-        for (Flight f : Database.flights) {
-            if (f.getFlightNumber().equals(flightNumber)) {
-                flight = f;
-                break;
-            }
-        }
+        // Simple confirmation logic (static now)
+        request.setAttribute("name", name);
+        request.setAttribute("from", from);
+        request.setAttribute("to", to);
+        request.setAttribute("date", date);
 
-        if (flight != null) {
-            Booking booking = Database.bookFlight(flight, passengerName, 
-                                               passengerEmail, passengers, 
-                                               travelClass);
-            request.setAttribute("booking", booking);
-            request.getRequestDispatcher("confirmation.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("search.html?error=flight_not_found");
-        }
+        RequestDispatcher rd = request.getRequestDispatcher("confirmation.jsp");
+        rd.forward(request, response);
     }
 }
